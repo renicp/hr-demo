@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  docker-mysql:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    environment:
+    - MYSQL_ROOT_PASSWORD=test123
+    - MYSQL_DATABASE=mysql
+    ports:
+    - "3306:3306"
+    networks:
+    - java_network
+  java-docker:
+    container_name: java-docker
+    image: java-docker:1.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+    - docker-mysql
+    ports:
+    - "8080:8080"
+    restart: unless-stopped
+    networks:
+    - java_network
+
+networks:
+  java_network:
