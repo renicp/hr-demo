@@ -2,6 +2,7 @@ package hr.demo.controller;
 
 import hr.demo.model.Employee;
 import hr.demo.service.EmployeeService;
+import hr.demo.vo.EmployeeJobVo;
 import hr.demo.vo.EmployeeVo;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -39,6 +40,12 @@ public class EmployeeController {
     @GetMapping("/employees/{id}")
     public ResponseEntity<Employee> getEmployee(@PathVariable int id){
         Employee list = employeeService.getEmplById(id);
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
+    @GetMapping("/employeeJob/{id}")
+    public ResponseEntity<EmployeeJobVo> getEmployeeWithJob(@PathVariable int id){
+        EmployeeJobVo list = employeeService.getEmplWithJob(id);
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 

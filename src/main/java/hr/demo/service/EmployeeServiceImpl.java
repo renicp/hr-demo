@@ -2,9 +2,11 @@ package hr.demo.service;
 
 import hr.demo.model.Employee;
 import hr.demo.model.EmployeeJob;
+import hr.demo.model.Job;
 import hr.demo.repositories.EmployeeJobRepo;
 import hr.demo.repositories.EmployeeRepo;
 import hr.demo.repositories.JobRepo;
+import hr.demo.vo.EmployeeJobVo;
 import hr.demo.vo.EmployeeVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +35,15 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public Employee getEmplById(int id) {
         return employeeRepo.findById(id).get();
+    }
+
+    @Override
+    public EmployeeJobVo getEmplWithJob(int id) {
+        Employee emplLocal = employeeRepo.getOne(id);
+        EmployeeJob emplJob = employeeJobRepo.findByEmployeeId(id);
+        Job jobLocal = jobRepo.getOne(emplJob.getJobId());
+        EmployeeJobVo result = new EmployeeJobVo(emplLocal.getFirstName(), emplLocal.getLastName(), emplJob.getJobId(), jobLocal.getJobDesc());
+        return result;
     }
 
     @Override
