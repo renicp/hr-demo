@@ -1,8 +1,24 @@
 # hr-demo
-simple demo project 
-### Launch URL: `http://localhost:8080/swagger-ui.html
+aplikasi hr sederhana
+bisa di clone di https://github.com/renicp/hr-demo.git branch master
 
-#### This is a simple demo project insert employee and job
+##database MySQL
+database untuk aplikasi akan langsung tergenerate oleh hibernate dengan syarat sudah ada host mysql:
+
+port = 6603
+
+schema database = mysql
+
+username = root
+
+password = test123
+
+##run aplikasi dengan cara : mvn spring-boot:run
+
+##Swagger API
+untuk akses semua API yang ada di project hr :
+http://localhost:8080/swagger-ui.html
+
 
 ###### Database: MysQL
 ###### Database Access:	JPA
