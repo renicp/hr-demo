@@ -1,10 +1,14 @@
 # hr-demo
 aplikasi hr sederhana
+
 ##database MySQL
 database untuk aplikasi akan langsung tergenerate oleh hibernate dengan syarat sudah ada host mysql:
 port = 6603
+
 schema database = mysql
+
 username = root
+
 password = test123
 
 ##run aplikasi dengan cara : mvn spring-boot:run
