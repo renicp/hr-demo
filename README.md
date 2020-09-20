@@ -1,8 +1,10 @@
 # hr-demo
 aplikasi hr sederhana
+bisa di clone di https://github.com/renicp/hr-demo.git branch master
 
 ##database MySQL
 database untuk aplikasi akan langsung tergenerate oleh hibernate dengan syarat sudah ada host mysql:
+
 port = 6603
 
 schema database = mysql
